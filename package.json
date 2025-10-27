@@ -1,0 +1,18 @@
+{
+  "name": "qi-teste-certificado",
+  "version": "1.0.0",
+  "description": "Teste de QI recreativo com pagamento R$4 e certificado em PDF",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "NODE_OPTIONS=--watch node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2",
+    "pdfkit": "^0.13.0",
+    "stripe": "^16.12.0"
+  }
+}
