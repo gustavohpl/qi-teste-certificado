@@ -1,65 +1,19 @@
 <!doctype html>
-<html lang="pt-br">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Teste Lógico – Certificado (R$4)</title>
-<meta property="og:title" content="Teste Lógico com Certificado" />
-<meta property="og:description" content="Faça o teste recreativo e receba um certificado em PDF por R$4." />
-<meta property="og:type" content="website" />
-<link rel="stylesheet" href="/style.css" />
-</head>
-<body>
-<header>
-<h1>🧠 Teste Lógico Recreativo</h1>
-<p>Receba seu <strong>certificado em PDF</strong> após o pagamento de <strong>R$4,00</strong>.</p>
-</header>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SaberDigital • Teste Lógico PRO</title>
+    <link rel="preconnect" href="https://js.stripe.com" />
+    <script type="module" crossorigin src="/assets/index-Dg9Loczz.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DdzBWeX9.css">
+  </head>
+  <body class="min-h-screen bg-gradient-to-br from-sky-50 to-indigo-100 text-slate-800">
+    <div id="app"></div>
 
+    <!-- Stripe v3 (necessário para o checkout) -->
+    <script src="https://js.stripe.com/v3"></script>
 
-<main>
-<section class="card">
-<h2>1) Seus dados</h2>
-<form id="userForm">
-<label>Nome completo
-<input type="text" name="name" placeholder="Seu nome" required />
-</label>
-<label>E-mail
-<input type="email" name="email" placeholder="voce@exemplo.com" required />
-</label>
-</form>
-</section>
-
-
-<section class="card">
-<h2>2) Quiz (10 questões rápidas)</h2>
-<form id="quizForm">
-<!-- Questões simples e objetivas -->
-<ol id="questionsOl"></ol>
-</form>
-</section>
-
-<section class="card actions">
-  <button id="calcScoreBtn" type="button">Calcular Pontuação</button>
-  <div id="scoreBox" class="hidden"></div>
-  <button id="payBtn" type="button" class="primary hidden">Gerar Certificado (R$4,00)</button>
-  <p id="errorBox" class="error hidden"></p>
-</section>
-
-
-
-<section class="card note">
-<p><strong>Aviso:</strong> Este é um teste recreativo, sem validade clínica. Ideal para redes sociais e entretenimento.</p>
-</section>
-</main>
-
-
-<footer>
-<small>© 2025 SaberDigital – Demo</small>
-</footer>
-
-<script src="https://js.stripe.com/v3"></script>
-
-
-<script src="/app.js" defer></script>
-</body>
+    <!-- App -->
+  </body>
 </html>
