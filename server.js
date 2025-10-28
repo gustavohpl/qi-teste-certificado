@@ -68,14 +68,13 @@ app.post('/create-checkout-session', async (req, res) => {
   try {
     const { name, email, score } = req.body;
     if (!name || !email || typeof score !== 'number') {
-      return res
-        .status(400)
-        .json({ error: 'Dados inválidos: name, email, score são obrigatórios.' });
+      return res.status(400).json({ error: 'Dados inválidos: name, email e score são obrigatórios.' });
     }
 
     const session = await stripe.checkout.sessions.create({
       mode: 'payment',
-      payment_method_types: ['card', 'pix'],
+      // Use só cartão enquanto testa. Depois podemos reativar o PIX.
+      payment_method_types: ['card'],
       customer_email: email,
       line_items: [
         {
@@ -95,12 +94,13 @@ app.post('/create-checkout-session', async (req, res) => {
       metadata: { name, score: String(score) },
     });
 
-    res.json({ url: session.url });
+    return res.json({ url: session.url });
   } catch (err) {
-    console.error('Erro ao criar sessão:', err);
-    res.status(500).json({ error: 'Falha ao criar sessão de pagamento.' });
+    console.error('Erro Stripe:', err?.raw?.message || err.message || err);
+    return res.status(500).json({ error: 'Falha ao criar sessão de pagamento.' });
   }
 });
+
 
 // Checar status da sessão
 app.get('/session-status', async (req, res) => {
