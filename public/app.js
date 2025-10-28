@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   try {
+    alert('JS carregado'); // teste rápido
+
     // ---- Seletores robustos (aceita dois IDs possíveis) ----
     const form      = document.getElementById('userForm');
     const nameEl    = form?.querySelector('input[name=name]');
